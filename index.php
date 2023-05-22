@@ -1,41 +1,45 @@
 <?php
 
-//array che contiene tutte le lettere, i numeri da 1 a 9 e alcuni simboli
-$my_array = array_merge(range('a', 'z'), range('A', 'Z'), range(1, 9), array('!', '@', '#', '$', '%', '^', '&', '*', '(', ')'));
+include_once __DIR__ . '/include/partials/funzioni.php';
 
-//var_dump($my_array);
+GetPassword($_GET['lunghezzaPass']);
 
-//prendo il valore booleano dell'input number
-$PasswordLength = isset($_GET['lunghezzaPass']);
+// //array che contiene tutte le lettere, i numeri da 1 a 9 e alcuni simboli
+// $my_array = array_merge(range('a', 'z'), range('A', 'Z'), range(1, 9), array('!', '@', '#', '$', '%', '^', '&', '*', '(', ')'));
 
-//var_dump($PasswordLength);
+// //var_dump($my_array);
 
-//mi faccio una copia del mio array originale
-$ArrayCopy = $my_array;
+// //prendo il valore booleano dell'input number
+// $PasswordLength = isset($_GET['lunghezzaPass']);
 
-//stringa password vuota
-$PasswordString = '';
+// //var_dump($PasswordLength);
 
-//se il valore booleano dell'input number é true e l'input non é vuoto
-if(isset($_GET['lunghezzaPass']) && $_GET['lunghezzaPass'] != ''){
+// //mi faccio una copia del mio array originale
+// $ArrayCopy = $my_array;
+
+// //stringa password vuota
+// $PasswordString = '';
+
+// //se il valore booleano dell'input number é true e l'input non é vuoto
+// if(isset($_GET['lunghezzaPass']) && $_GET['lunghezzaPass'] != ''){
     
-    //pusho in un array vuoto $EmptyArray tot(numero scelto dall'utente) chiavi prese dal mio array copia
-    $EmptyArray = array_rand( $ArrayCopy, $_GET['lunghezzaPass']);
+//     //pusho in un array vuoto $EmptyArray tot(numero scelto dall'utente) chiavi prese dal mio array copia
+//     $EmptyArray = array_rand( $ArrayCopy, $_GET['lunghezzaPass']);
 
-    //var_dump($EmptyArray);
+//     //var_dump($EmptyArray);
 
-    //per ogni elemento dell'array riempito di tot chiavi
-    foreach ($EmptyArray as $elem){
+//     //per ogni elemento dell'array riempito di tot chiavi
+//     foreach ($EmptyArray as $elem){
 
-        //pusho e concateno in una stringa inizialmente vuota un elemento preso dal mio array copia con indice che ha valore numerico dell'emptyArray con chiavi randomiche
-        $PasswordString.= $ArrayCopy[$elem];
+//         //pusho e concateno in una stringa inizialmente vuota un elemento preso dal mio array copia con indice che ha valore numerico dell'emptyArray con chiavi randomiche
+//         $PasswordString.= $ArrayCopy[$elem];
 
         
-    }
+//     }
     
-    //var_dump($PasswordString);
+//     //var_dump($PasswordString);
     
-}
+// }
 
 
 
@@ -60,7 +64,7 @@ if(isset($_GET['lunghezzaPass']) && $_GET['lunghezzaPass'] != ''){
         <div class="container">
             <div class="card mb-4">
                 <div class="card-body">
-                  La password generata é: <b><?php echo $PasswordString ?></b> 
+                  La password generata é: <b><?php getPassword(); ?></b> 
                 </div>
             </div>
 
