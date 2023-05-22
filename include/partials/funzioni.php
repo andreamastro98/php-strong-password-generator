@@ -32,9 +32,9 @@ if(isset($arg1) && $arg1 != ''){
         $PasswordString.= $ArrayCopy[$elem];
 
         
-    }
+        }
     
     echo($PasswordString);
     
-}
+    }
 }
